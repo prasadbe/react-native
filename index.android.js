@@ -17,8 +17,10 @@ import MapArea from './components/mapview';
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import mapReducer from './reducers';
+import pageReducer from './reducers/page';
+import vendorReducer from './reducers/vendor';
 import styles from './styles/index';
-const store = createStore(combineReducers({mapReducer}));
+const store = createStore(combineReducers({mapReducer, pageReducer, vendorReducer}));
 export default class IPL extends Component {   
   render() {
     return (

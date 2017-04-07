@@ -30,7 +30,19 @@ let mapDispatchProps = (dispatch) => {
             dispatch({
                 type:Type.clearMarker
             });
-        }
+        },
+        changePage :  (page) => {
+            dispatch({
+                type:Type.changePage,
+                content:page
+            });
+        },
+        loadData :  (data) => {
+            dispatch({
+                type:Type.loadData,
+                data:data
+            });
+        },
     };
 }
  class MapArea extends React.Component {
@@ -55,6 +67,15 @@ let mapDispatchProps = (dispatch) => {
             console.error(error);
         });
    }
+   showVendor(id) {
+        this.props.changePage('vendor');
+        Action.loadVendorDetail(id).then((data) => {
+            this.props.loadData(data.data)
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+   }
    render() {
      return (
        <View style={styles.containerMap} >
@@ -64,7 +85,7 @@ let mapDispatchProps = (dispatch) => {
             <MapView.Marker
             coordinate={marker.coordinate}
             title={marker.title}
-            description={marker.description} key={marker.id} pinColor="#ff0000"
+            description={marker.description} onPress={() => { this.showVendor(marker.id) }} key={marker.id} pinColor="#ff0000"
             />
         ))}</MapView>
                 </View>

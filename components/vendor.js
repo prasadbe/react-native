@@ -9,14 +9,11 @@ import {
   View
 } from 'react-native';
 import { connect } from 'react-redux';
-import Header from './header';
-import MapArea from './mapview';
-import Vendor from './vendor';
 import styles from '../styles/index';
 let mapStatetoProps = (state) => {
     return {
         map:state.mapReducer,
-        page:state.pageReducer
+        vendor:state.vendorReducer
     };
 }
 let mapDispatchProps = (dispatch) => {
@@ -24,9 +21,8 @@ let mapDispatchProps = (dispatch) => {
 
     };
 }
- class IndexC extends React.Component {
+ class Vendor extends React.Component {
    constructor(props) {
-     console.log(props);
      super(props);          
    }
     
@@ -37,11 +33,9 @@ let mapDispatchProps = (dispatch) => {
    render() {
      return (
        <View style={styles.container} >
-        <Header></Header>
-        {(this.props.page.content == 'map') ? <MapArea></MapArea> : (this.props.page.content == 'vendor') ? <Vendor></Vendor> : <Text>Other</Text> 
-        }
+        {(typeof(this.props.vendor.data.first_name) != 'undefined') ? <Text>Welcome {this.props.vendor.data.first_name}</Text> : <Text>Loading</Text>}
       </View>
      );
    }
  }
- export default connect(mapStatetoProps,mapDispatchProps)(IndexC);
+ export default connect(mapStatetoProps,mapDispatchProps)(Vendor);

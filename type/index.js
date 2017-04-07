@@ -1,5 +1,7 @@
 export default {
     newMarker: 'addNewMarker',
     clearMarker :'clearAllMarker',
-    allMarker : 'addAllMarker'
+    allMarker : 'addAllMarker',
+    changePage: 'changePage',
+    loadData:'loadData'
 };
