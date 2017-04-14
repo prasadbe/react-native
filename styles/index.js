@@ -7,7 +7,34 @@ export default styles = StyleSheet.create({
     height:950
     
   },
-   scrollViewFull: {
+  lightImg : {
+    width:50,
+    height:50,
+    margin:5,
+    borderRadius:25
+  },
+  coupon_name_view: {
+    position:'absolute',
+    width:60,
+    height:20,
+    zIndex:10,
+    borderRadius:20,
+    bottom:0,
+    backgroundColor:'red'
+  },
+  coupon_name_text: {
+    fontSize:7,
+    textAlign:'center',
+    color:'white',
+  },
+  lightView : {
+    width:60,
+    position:'relative',
+    height:60,
+    backgroundColor:'#0000ff',
+    borderRadius:30
+  },
+  scrollViewFull: {
     backgroundColor: '#fff',
   },  
   list_view :{

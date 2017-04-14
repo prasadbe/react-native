@@ -1,6 +1,7 @@
 import Type from '../type';
 export default vendorReducer = (state = {
     id:0,
+    isModal:false,
     data:{
 
     }
@@ -13,6 +14,9 @@ export default vendorReducer = (state = {
         }
         case Type.loadVendor : {
             return Object.assign({},state,{id:action.id});
+        }
+        case Type.showModal : {
+            return Object.assign({},state,{isModal:action.status});
         }
         default: {
             return state;
